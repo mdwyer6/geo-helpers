@@ -5,7 +5,7 @@ var degToRad = function(deg) {
 }
 
 module.exports = {
-  geodesic: function (latA, longA, latB, longB, max) {
+  findGeodesic: function (latA, longA, latB, longB, max) {
     latA = degToRad(latA);
     latB = degToRad(latB);
     longA = degToRad(longA); 
@@ -20,5 +20,16 @@ module.exports = {
     }
     
     return dist;
+  }
+
+  findCentroid: function (latArr, longArr) {
+    let latSum = 0;
+    let longSum = 0;
+    for (var i = 0; i < Math.max(latArr.length, longArr.length); i++) {
+      latSum += latArr[i] || 0;
+      longSum += longArr[i] || 0;
+    }
+
+    return [latSum / latArr.length, longSum / longArr.length];
   }
 }
