@@ -5,7 +5,7 @@ Helper methods for dealing with geolocation.
 ```npm install geo-helpers```
 
 ##Methods
-###findGeodesic(a, b[, max])
+###findGeodesic(latA, longA, latB, longB[, max])
 * latA - Float
 * longA - Float
 * latB - Float
