@@ -1,0 +1,19 @@
+{
+  "name": "geo-helpers",
+  "version": "1.0.0",
+  "description": "Helper methods for dealing with geolocation.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdwyer6/geodesic.git"
+  },
+  "author": "Michael Dwyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdwyer6/geodesic/issues"
+  },
+  "homepage": "https://github.com/mdwyer6/geodesic#readme"
+}
