@@ -5,13 +5,20 @@ var degToRad = function(deg) {
 }
 
 module.exports = {
-  geodesic: function (a, b, max) {
-    const latA = degToRad(a[0]), latB = degToRad(b[0]);
-    const longA = degToRad(a[1]), longB = degToRad(b[1]);
+  geodesic: function (latA, longA, latB, longB, max) {
+    latA = degToRad(latA);
+    latB = degToRad(latB);
+    longA = degToRad(longA); 
+    longB = degToRad(longB);
     var a = Math.sin((latB - latA) / 2) * Math.sin((latB - latA) / 2) +
       Math.cos(latA) * Math.cos(latB) * 
       Math.sin((longB - longA) / 2) * Math.sin((longB - longA) / 2); 
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    return r * c;
+    var dist = r * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    
+    if (max) {
+      return dist > max;
+    }
+    
+    return dist;
   }
 }
