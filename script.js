@@ -4,6 +4,10 @@ var degToRad = function(deg) {
   return deg * (Math.PI / 180);
 }
 
+var radToDeg = function(rad) {
+  return rad * (180 / Math.PI);
+}
+
 module.exports = {
   findGeodesic: function (latA, longA, latB, longB, max) {
     latA = degToRad(latA);
@@ -13,7 +17,7 @@ module.exports = {
     var a = Math.sin((latB - latA) / 2) * Math.sin((latB - latA) / 2) +
       Math.cos(latA) * Math.cos(latB) * 
       Math.sin((longB - longA) / 2) * Math.sin((longB - longA) / 2); 
-    var dist = r * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var dist = r * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     
     if (max) {
       return dist > max;
