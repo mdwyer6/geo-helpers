@@ -19,3 +19,12 @@ If max parameter is excluded function returns the orthodromic distance between g
 * longArr - Array
 
 Returns geometric midpoint (arithmetic mean) given an array of latitude coordinates and an array of longitude coordinates.
+
+###interpolatePoints(latA, longA, latB, longB, distBetweenPoints)
+* latA - Float
+* longA - Float
+* latB - Float
+* longB - Float
+* distBetweenPoints - Float
+
+Returns geographical coordinates of a fixed distance apart (distBetweenPoints) along the direct path between two given points.
