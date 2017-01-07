@@ -41,7 +41,7 @@ var findGeodesic = function (latA, longA, latB, longB, max) {
     }
     
     return dist;
-  },
+  }
 
 var findCentroid = function (latArr, longArr) {
     let latSum = 0;
@@ -52,7 +52,7 @@ var findCentroid = function (latArr, longArr) {
     }
 
     return [latSum / latArr.length, longSum / longArr.length];
-  },
+  }
 
 var interpolatePoints = function(latA, longA, latB, longB, distBetweenPoints) {
     var totalDist = findGeodesic(latA, longA, latB, longB);
