@@ -55,7 +55,7 @@ var findCentroid = function (latArr, longArr) {
   },
 
 var interpolatePoints = function(latA, longA, latB, longB, distBetweenPoints) {
-    var totalDist = module.exports.findGeodesic(latA, longA, latB, longB);
+    var totalDist = findGeodesic(latA, longA, latB, longB);
     var latDisplacement = latB - latA;
     var longDisplacement = longB - longA;
     var coords = [];
