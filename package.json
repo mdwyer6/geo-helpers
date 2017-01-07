@@ -1,6 +1,6 @@
 {
   "name": "geo-helpers",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Helper methods for dealing with geolocation.",
   "main": "script.js",
   "scripts": {
