@@ -1,3 +1,4 @@
+var DBSCAN = require('dbscan');
 var spawn = require("child_process").spawn;
 
 const r = 6371000;
@@ -41,7 +42,7 @@ module.exports = {
     }
     
     return dist;
-  }
+  },
 
   findCentroid: function (latArr, longArr) {
     let latSum = 0;
@@ -52,7 +53,7 @@ module.exports = {
     }
 
     return [latSum / latArr.length, longSum / longArr.length];
-  }
+  },
 
   interpolatePoints(latA, longA, latB, longB, distBetweenPoints) {
     var totalDist = findGeodesic(latA, longA, latB, longB);
