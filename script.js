@@ -1,5 +1,5 @@
-var DBSCAN = require('dbscan');
-var spawn = require("child_process").spawn;
+//var DBSCAN = require('dbscan');
+//var spawn = require("child_process").spawn;
 
 const r = 6371000;
 
