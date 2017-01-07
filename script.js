@@ -26,8 +26,7 @@ var _geoToCartesian = function(lat, long) {
 
 // }
 
-module.exports = {
-  findGeodesic: function (latA, longA, latB, longB, max) {
+var findGeodesic = function (latA, longA, latB, longB, max) {
     latA = _degToRad(latA);
     latB = _degToRad(latB);
     longA = _degToRad(longA); 
@@ -44,7 +43,7 @@ module.exports = {
     return dist;
   },
 
-  findCentroid: function (latArr, longArr) {
+var findCentroid = function (latArr, longArr) {
     let latSum = 0;
     let longSum = 0;
     for (var i = 0; i < Math.max(latArr.length, longArr.length); i++) {
@@ -55,8 +54,8 @@ module.exports = {
     return [latSum / latArr.length, longSum / longArr.length];
   },
 
-  interpolatePoints(latA, longA, latB, longB, distBetweenPoints) {
-    var totalDist = findGeodesic(latA, longA, latB, longB);
+var interpolatePoints = function(latA, longA, latB, longB, distBetweenPoints) {
+    var totalDist = module.exports.findGeodesic(latA, longA, latB, longB);
     var latDisplacement = latB - latA;
     var longDisplacement = longB - longA;
     var coords = [];
@@ -87,4 +86,8 @@ module.exports = {
   //   return result;
   // }
 
+module.exports = {
+  findGeodesic: findGeodesic,
+  findCentroid: findCentroid,
+  interpolatePoints: interpolatePoints
 }
