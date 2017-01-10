@@ -27,47 +27,47 @@ var _geoToCartesian = function(lat, long) {
 // }
 
 var findGeodesic = function (latA, longA, latB, longB, max) {
-    latA = _degToRad(latA);
-    latB = _degToRad(latB);
-    longA = _degToRad(longA); 
-    longB = _degToRad(longB);
-    var a = Math.sin((latB - latA) / 2) * Math.sin((latB - latA) / 2) +
-      Math.cos(latA) * Math.cos(latB) * 
-      Math.sin((longB - longA) / 2) * Math.sin((longB - longA) / 2); 
-    var dist = r * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    
-    if (max) {
-      return dist > max;
-    }
-    
-    return dist;
+  latA = _degToRad(latA);
+  latB = _degToRad(latB);
+  longA = _degToRad(longA); 
+  longB = _degToRad(longB);
+  var a = Math.sin((latB - latA) / 2) * Math.sin((latB - latA) / 2) +
+    Math.cos(latA) * Math.cos(latB) * 
+    Math.sin((longB - longA) / 2) * Math.sin((longB - longA) / 2); 
+  var dist = r * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  
+  if (max) {
+    return dist > max;
   }
+  
+  return dist;
+}
 
 var findCentroid = function (latArr, longArr) {
-    let latSum = 0;
-    let longSum = 0;
-    for (var i = 0; i < Math.max(latArr.length, longArr.length); i++) {
-      latSum += latArr[i] || 0;
-      longSum += longArr[i] || 0;
-    }
-
-    return [latSum / latArr.length, longSum / longArr.length];
+  var latSum = 0;
+  var longSum = 0;
+  for (var i = 0; i < Math.max(latArr.length, longArr.length); i++) {
+    latSum += latArr[i] || 0;
+    longSum += longArr[i] || 0;
   }
+
+  return [latSum / latArr.length, longSum / longArr.length];
+}
 
 var interpolatePoints = function(latA, longA, latB, longB, distBetweenPoints) {
-    var totalDist = findGeodesic(latA, longA, latB, longB);
-    var latDisplacement = latB - latA;
-    var longDisplacement = longB - longA;
-    var coords = [];
-    var ratio = distBetweenPoints / totalDist;
-    for (var i = 0; i < Math.floor(totalDist / distBetweenPoints); i++) {
-      var pair = [];
-      pair.push(latA + (latDisplacement * ratio) * (i + 1), longA + (longDisplacement * ratio) * (i + 1));
-      coords.push(pair);
-    }
-
-    return coords;
+  var totalDist = findGeodesic(latA, longA, latB, longB);
+  var latDisplacement = latB - latA;
+  var longDisplacement = longB - longA;
+  var coords = [];
+  var ratio = distBetweenPoints / totalDist;
+  for (var i = 0; i < Math.floor(totalDist / distBetweenPoints); i++) {
+    var pair = [];
+    pair.push(latA + (latDisplacement * ratio) * (i + 1), longA + (longDisplacement * ratio) * (i + 1));
+    coords.push(pair);
   }
+
+  return coords;
+}
 
   //---------------------------------------------------------//
   //---------------------In Developement---------------------//

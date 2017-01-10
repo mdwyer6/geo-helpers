@@ -1,0 +1,34 @@
+var chai = require('chai');
+var expect = chai.expect;
+var geo = require('./script');
+
+describe('script', function() {
+  describe('findGeodesic', function() {
+    it('should return correct distance from NY to SF', function() {
+      expect(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297)).to.equal(4135542.3375744945);
+    });
+    it('should return true when distance is less than max', function() {
+      expect(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297, 1000)).to.equal(true);
+    });
+    it('should return false when distance is greater than max', function() {
+      expect(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297, 10000000)).to.equal(false);
+    });
+  });
+
+  describe('findCentroid', function() {
+    it('should return the arithmetic mean of all coordiantes', function() {
+      expect(geo.findCentroid([12.33, 66.49, 36.01], [81.11, 77.90, 4.53])).to.deep.equal([38.276666666666664, 54.51333333333333]);
+    });
+  });
+
+  describe('interpolatePoints', function() {
+    it('should give array of coordinates between given points', function() {
+      expect(geo.interpolatePoints(43.13, 29.01, 85.55, 68.10, 1000000)).to.deep.equal([
+        [51.90279766658499, 37.094126845516435], 
+        [60.67559533316998, 45.178253691032864], 
+        [69.44839299975496, 53.2623805365493], 
+        [78.22119066633995, 61.34650738206574]]
+      );
+    })
+  })
+})
