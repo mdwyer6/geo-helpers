@@ -5,7 +5,7 @@ var geo = require('./script');
 describe('script', function() {
   describe('findGeodesic', function() {
     it('should return correct distance from NY to SF', function() {
-      expect(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297)).to.equal(4135542.3375744945);
+      expect(Math.floor(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297))).to.equal(4135542);
     });
     it('should return true when distance is less than max', function() {
       expect(geo.findGeodesic(40.730610, -73.935242, 37.773972, -122.431297, 1000)).to.equal(true);
