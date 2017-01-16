@@ -1,5 +1,7 @@
 #Geo-helpers
+
 [![CircleCI Status](https://circleci.com/gh/mdwyer6/geo-helpers/tree/master.svg?style=shield&circle-token=0444f057fadb28aacd3cb6b5809dc831f439dd0b)](https://circleci.com/gh/mdwyer6/geo-helpers)
+
 Helper methods for dealing with geolocation.
 
 ##Installation

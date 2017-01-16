@@ -1,7 +1,7 @@
 //var DBSCAN = require('dbscan');
 //var spawn = require("child_process").spawn;
 
-const r = 6371000;
+var r = 6371000;
 
 var _degToRad = function(deg) {
   return deg * (Math.PI / 180);
